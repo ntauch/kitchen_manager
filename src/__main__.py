@@ -1,7 +1,7 @@
 import time
 
-import Adafruit_CharLCD as LCD
-import ean_search as ean
+import src.libs.Adafruit_CharLCD as LCD
+import src.controller.ean_search as ean
 
 from src.db import queries as query
 
@@ -27,24 +27,25 @@ def main():
     """
     display_on()
     while True:
+        db = query.Database()
         lcd.clear()
         lcd.message("Artikel scannen")
         product_ean = input()
         if product_ean == EXIT_CODE:
             break
         else:
-            if not query.find_article(product_ean):
+            if not db.find_article(product_ean):
                 product_page = ean.do_request(product_ean)
                 product_data = ean.cook_soup(product_page)
                 if product_data['success']:
-                    query.create_article(product_ean, product_data['name'])
+                    db.create_article(product_ean, product_data['name'])
                 else:
                     lcd.clear()
                     lcd.message("Produkt nicht gefunden")
                     time.sleep(3)
                     break
-            query.add_item_to_stock(product_ean)
-            product_name = query.get_product_name(product_ean)
+            db.add_item_to_stock(product_ean)
+            product_name = db.get_product_name(product_ean)
             lcd.clear()
             lcd.message(product_name)
             time.sleep(3)
