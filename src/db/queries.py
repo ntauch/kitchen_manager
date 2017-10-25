@@ -1,5 +1,6 @@
 import pymysql.cursors
 
+
 def open_connection():
     connection = pymysql.connect(host='INSERT HOST ADDRESS HERE',
                                  user='INSERT DATABASE USER HERE',

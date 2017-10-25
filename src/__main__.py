@@ -1,7 +1,10 @@
-import ean_search as ean
-import queries as query
 import time
+
 import Adafruit_CharLCD as LCD
+import ean_search as ean
+
+from src.db import queries as query
+
 lcd = LCD.Adafruit_CharLCDPlate()
 
 # Replace this with your own start/exit code
