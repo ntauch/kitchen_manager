@@ -1,4 +1,4 @@
-# kitchen_inventory_manager
+# Kitchen Inventory Manager
 This code was written for a private project. My goal was to create my own kitchen inventory system. All you need is a Raspberry Pi and a Barcode Scanner.
 Further documentation can be obtained on my website. Understand that, although web scraping of public data is not illegal, I had to redact the adress of the service I am using, but I'm confident you will find a suitable replacement.
 As long as you keep the number of requests to a minimum and only use the scraped data for private purposes, you should be well inside the bounds of legality.
